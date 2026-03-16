@@ -124,9 +124,12 @@ Problem User Checkout Form Should Work
     Fill Text    id=last-name    User
     Fill Text    id=postal-code    12345
     # Verify the fields actually contain the values
-    Get Text    id=first-name    ==    Test
-    Get Text    id=last-name    ==    User
-    Get Text    id=postal-code    ==    12345
+    ${first}=    Get Property    id=first-name    value
+    ${last}=    Get Property    id=last-name    value
+    ${postal}=    Get Property    id=postal-code    value
+    Should Be Equal    ${first}    Test    BUG: First name field not accepting input
+    Should Be Equal    ${last}    User    BUG: Last name field not accepting input
+    Should Be Equal    ${postal}    12345    BUG: Postal code field not accepting input
     [Teardown]    Go To    ${BASE_URL}
 
 Problem User Cart Page Should Show Correct Items

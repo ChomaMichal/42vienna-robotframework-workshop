@@ -51,7 +51,7 @@ Locked Out User Fields Still Accessible After Error
     # Try to enter new credentials
     Fill Text    id=user-name    standard_user
     Fill Text    id=password    secret_sauce
-    ${username}=    Get Text    id=user-name
+    ${username}=    Get Property    id=user-name    value
     Should Be Equal    ${username}    standard_user    Input fields should be editable
     [Teardown]    Go To    ${BASE_URL}
 

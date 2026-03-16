@@ -221,7 +221,7 @@ Refresh Page During Checkout
     # Refresh page
     Reload
     # Check if data is preserved
-    ${first_name}=    Get Text    id=first-name
+    ${first_name}=    Get Property    id=first-name    value
     Log    First name after refresh: ${first_name}
     [Teardown]    Go To    ${BASE_URL}
 
